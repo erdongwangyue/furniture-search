@@ -1,0 +1,3 @@
+"""
+Furniture Search Engine package.
+"""
