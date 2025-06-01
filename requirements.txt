@@ -41,8 +41,3 @@ langchain-community>=0.3.0
 langchain-core>=0.3.0
 playwright==1.42.0  # Required for some LangChain web scrapers
 
-# Added from the code block
-pydantic>=2.0.0
-
-# New Azure SDK packages
-azure-core>=1.29.5 

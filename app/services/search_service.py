@@ -65,17 +65,6 @@ class SearchService:
                 semantic_configuration_name=semantic_configuration_name,
             )
 
-            # results = self.client.search(
-            #     search_text=query,
-            #     filter=filters,
-            #     top=top,
-            #     skip=skip,
-            #     query_type=query_type,
-            #     semantic_configuration_name=semantic_configuration_name,
-            #     query_caption="extractive",
-            #     query_answer="extractive",
-            # )
-
             results = self.client.search(search_text=query)
 
             # Convert results to list of dicts
@@ -90,63 +79,3 @@ class SearchService:
                 exc_info=True,
             )
             return []
-
-    # async def create_index(self, index_definition: Dict[str, Any]) -> bool:
-    #     """
-    #     Create or update the search index.
-
-    #     Args:
-    #         index_definition: The index definition dictionary
-
-    #     Returns:
-    #         bool: True if successful, False otherwise
-    #     """
-    #     try:
-    #         logger.info("Creating/updating search index", index_name=self.index_name)
-    #         index_client = SearchIndexClient(
-    #             endpoint=self.endpoint, credential=self.credential
-    #         )
-
-    #         index = SearchIndex(
-    #             name=self.index_name,
-    #             fields=index_definition["fields"],
-    #             semantic_settings=index_definition.get("semantic_settings"),
-    #             scoring_profiles=index_definition.get("scoring_profiles", []),
-    #             suggesters=index_definition.get("suggesters", []),
-    #         )
-
-    #         index_client.create_or_update_index(index)
-    #         logger.info("Index created/updated successfully")
-    #         return True
-    #     except Exception as e:
-    #         logger.error(
-    #             "Error creating/updating index",
-    #             error=str(e),
-    #             error_type=type(e).__name__,
-    #             exc_info=True,
-    #         )
-    #         return False
-
-    # async def upload_documents(self, documents: List[Dict[str, Any]]) -> bool:
-    #     """
-    #     Upload documents to the search index.
-
-    #     Args:
-    #         documents: List of documents to upload
-
-    #     Returns:
-    #         bool: True if successful, False otherwise
-    #     """
-    #     try:
-    #         logger.info("Uploading documents", document_count=len(documents))
-    #         self.client.upload_documents(documents)
-    #         logger.info("Documents uploaded successfully")
-    #         return True
-    #     except Exception as e:
-    #         logger.error(
-    #             "Error uploading documents",
-    #             error=str(e),
-    #             error_type=type(e).__name__,
-    #             exc_info=True,
-    #         )
-    #         return False

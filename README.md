@@ -67,7 +67,7 @@ uvicorn app.main:app --reload
 - Azure Blob Storage: For storing furniture images and metadata
 - Azure Form Recognizer: For processing furniture specifications
 
-## Caommands 
+## Commmands 
 make install
 make setup
 python3.11 scripts/scrape_furniture.py
@@ -75,6 +75,9 @@ pip show langchain-community
 pip list | grep langchain
 python -c "import sys; print(sys.executable)"
 
-## License
-
-MIT 
+## Next step
+1 query processing
+2 metrics setup
+3 dependency injection
+4 benchmark
+5 managed identity setup.
