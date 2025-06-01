@@ -1,8 +1,11 @@
-.PHONY: install test lint format clean coverage
+.PHONY: install test lint format clean coverage setup-dev
 
 # Development commands
 install:
 	pip install -r requirements.txt
+
+setup-dev:
+	pip install -e ".[dev]"
 
 test:
 	pytest -v
@@ -28,7 +31,7 @@ clean:
 	find . -type f -name "*.pyc" -delete
 
 # Combined commands
-setup: install format lint test
+setup: install setup-dev format lint test
 
 # Development workflow
 dev: format lint test 
